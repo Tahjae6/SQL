@@ -1,0 +1,9 @@
+CREATE TABLE Tahjae_Store_of_Cakes (id INTEGER PRIMARY KEY,flavor TEXT, available INTEGER,price REAL,delivery TEXT);
+INSERT INTO Tahjae_Store_of_Cakes VALUES (1,"Chocolate", 5, 10.50, "YES");
+INSERT INTO Tahjae_Store_of_Cakes VALUES (2,"Vanilla", 3,9.75,"YES");
+INSERT INTO Tahjae_Store_of_Cakes VALUES (3,"Strawberry", 2, 12.25,"YES");
+INSERT INTO Tahjae_Store_of_Cakes VALUES (4,"Red Velvet", 4, 12.75, "NO");
+INSERT INTO Tahjae_Store_of_Cakes VALUES (5, "Banana",6, 11.20, "NO");
+INSERT INTO Tahjae_Store_of_Cakes VALUES (6,"Coconut", 3, 10.75,"NO");
+SELECT * FROM Tahjae_Store_of_Cakes ORDER BY price ASC;
+SELECT SUM (available) FROM Tahjae_Store_of_Cakes;
