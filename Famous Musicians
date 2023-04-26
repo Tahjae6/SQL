@@ -1,0 +1,73 @@
+CREATE TABLE musicians (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    gender TEXT,
+    age INTEGER);
+    INSERT INTO musicians VALUES( 1,"Beyonce",'Female',41);
+    INSERT INTO musicians VALUES(2,"Rihanna",'Female',35);
+INSERT INTO musicians VALUES(3,"Bad Bunny",'Male',29);
+ INSERT INTO musicians VALUES( 4, "The Weeknd", 'Male',33);
+  INSERT INTO musicians VALUES( 5, "Taylor Swift", 'Female',33);
+ INSERT INTO musicians VALUES( 6, "Drake", 'Male',36);
+ INSERT INTO musicians VALUES( 7, "Doja Cat",'Female',27);
+ INSERT INTO musicians VALUES( 8, "Harry Styles", 'Male',29);
+ INSERT INTO musicians VALUES( 9, "Cardi B", 'Female',30);
+ INSERT INTO musicians VALUES( 10, "BTS", 'Male',27);
+ 
+CREATE TABLE genre (id INTEGER PRIMARY KEY,genre TEXT);
+INSERT INTO genre VALUES (1,"R&B");
+INSERT INTO genre VALUES (2,"R&B");
+INSERT INTO genre VALUES (3,"Reggaeton");
+INSERT INTO genre VALUES (4,"Dance");
+INSERT INTO genre VALUES (5,"Pop");
+INSERT INTO genre VALUES (6,"Hip Hop");
+INSERT INTO genre VALUES (7,"Hip Hop");
+INSERT INTO genre VALUES (8,"Pop");
+INSERT INTO genre VALUES (9,"Hip Hop");
+INSERT INTO genre VALUES (10,"Kpop");
+
+CREATE TABLE birthplace (id INTEGER PRIMARY KEY, place_of_birth TEXT);
+INSERT INTO birthplace VALUES (1,"Houston,Texas");
+INSERT INTO birthplace VALUES (2,"Saint Michael, Barbados");
+INSERT INTO birthplace VALUES (3,"Vega Baja, Puerto Rico");
+INSERT INTO birthplace VALUES (4,"Toronto,Canada");
+INSERT INTO birthplace VALUES (5,"West Reading,Pennsylvania");
+INSERT INTO birthplace VALUES (6,"Toronto,Canada");
+INSERT INTO birthplace VALUES (7,"Los Angeles,California");
+INSERT INTO birthplace VALUES (8,"Redditch,United Kingdom");
+INSERT INTO birthplace VALUES (9,"Bronx, New York");
+INSERT INTO birthplace VALUES (10,"Seoul, South Korea");
+
+CREATE TABLE hit_song_2022 (id INTEGER PRIMARY KEY,song TEXT);
+INSERT INTO hit_song_2022 VALUES (1,"Cuff It");
+INSERT INTO hit_song_2022 VALUES (2,NULL);
+INSERT INTO hit_song_2022 VALUES (3,"Me Porto Bonito");
+INSERT INTO hit_song_2022 VALUES (4,"Blinding Lights");
+INSERT INTO hit_song_2022 VALUES (5,"Anti Hero");
+INSERT INTO hit_song_2022 VALUES (6,"Rich Flex");
+INSERT INTO hit_song_2022 VALUES (7,"Kiss Me More");
+INSERT INTO hit_song_2022 VALUES (8,"As It Was");
+INSERT INTO hit_song_2022 VALUES (9,"Despecha Remix");
+INSERT INTO hit_song_2022 VALUES (10,"Butter");
+CREATE TABLE grammy_awards (id INTEGER PRIMARY KEY, awards INTEGER);
+INSERT INTO grammy_awards VALUES(1,32);
+INSERT INTO grammy_awards VALUES(2,9);
+INSERT INTO grammy_awards VALUES(3,3);
+INSERT INTO grammy_awards VALUES(4,4);
+INSERT INTO grammy_awards VALUES(5,12);
+INSERT INTO grammy_awards VALUES(6,5);
+INSERT INTO grammy_awards VALUES(7,1);
+INSERT INTO grammy_awards VALUES(8,3);
+INSERT INTO grammy_awards VALUES(9,1);
+INSERT INTO grammy_awards VALUES(10,NULL);
+
+SELECT musicians.name,grammy_awards.awards FROM musicians JOIN grammy_awards ON musicians.id=grammy_awards.id ORDER BY awards DESC;
+
+SELECT musicians.name,musicians.age,genre.genre FROM musicians JOIN genre ON musicians.id=genre.id;
+
+SELECT musicians.name,musicians.age,birthplace.place_of_birth FROM musicians JOIN birthplace ON musicians.id=birthplace.id;
+
+
+SELECT musicians.gender,SUM(grammy_awards.awards) AS awards_total FROM musicians JOIN grammy_awards ON musicians.id=grammy_awards.id GROUP BY gender;
+
+
