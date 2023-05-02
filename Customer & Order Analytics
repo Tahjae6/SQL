@@ -26,7 +26,7 @@ FROM BIT_DB.JanSales
 ORDER BY price ASC LIMIT 1;
 
 ##5. What is the total revenue for each product sold in January?
-SELECT sum(quantity)*price AS revenue
+SELECT SUM(quantity)*price AS revenue
 ,product
 FROM BIT_DB.JanSales
 GROUP BY product;
@@ -72,7 +72,7 @@ WHERE Product like '%Headphones%'
 GROUP BY Product;
 
 ##11. What was the average amount spent per account in February?
-SELECT avg(quantity*price)
+SELECT AVG(quantity*price)
 FROM BIT_DB.FebSales 
 LEFT JOIN BIT_DB.customers 
 ON FebSales.orderid=customers.order_id
